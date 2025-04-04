@@ -8,10 +8,11 @@ using UnityEngine.InputSystem;
 public class ShootScript : MonoBehaviour
 {
     public float ShootDistanceThreshold = 1;
-    public bool HasShot = false;
     public GameObject BulletPrefab;
-    Vector2? start;
+    public GameObject[] ShootSFX;
 
+    Vector2? start;
+    bool HasShot = false;
     public void Update()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -21,6 +22,7 @@ public class ShootScript : MonoBehaviour
             Vector2 diff = mousePos - start.Value;
             float rotation = Mathf.Rad2Deg * MathF.Atan2(diff.y, diff.x);
             Instantiate(BulletPrefab, mousePos, Quaternion.Euler(0, 0, rotation));
+            Instantiate(ShootSFX[UnityEngine.Random.Range(0, ShootSFX.Length)]);
             HasShot = true;
         }
     }
