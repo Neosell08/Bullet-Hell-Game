@@ -11,7 +11,7 @@ public class DebrisScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Vector2 velocity = RotationToVector(transform.rotation.eulerAngles.z);
+        Vector2 velocity = Globals.RotationToVector(transform.rotation.eulerAngles.z);
     }
 
     // Update is called once per frame
@@ -37,9 +37,5 @@ public class DebrisScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    Vector2 RotationToVector(float rotation)
-    {
-        rotation = rotation * Mathf.Deg2Rad;
-        return new Vector2(MathF.Round(MathF.Cos(rotation), 6), MathF.Round(MathF.Sin(rotation), 6));
-    }
+    
 }

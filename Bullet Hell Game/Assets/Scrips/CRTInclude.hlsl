@@ -10,16 +10,14 @@
 	#define PS_SHADERMODEL ps_4_0_level_9_1
 #endif
 
-Texture2D SpriteTexture;
+
 float Time;
 float2 ScreenSize = float2(1920, 1080);
 float PixelSize = 8;
 float ChromaticStrength = 0.02f;
 
-sampler2D SpriteTextureSampler = sampler_state
-{
-	Texture = <SpriteTexture>;
-};
+sampler2D SpriteTextureSampler;
+
 
 struct VertexShaderOutput
 {
@@ -43,17 +41,7 @@ float4 Pixelate(VertexShaderOutput input) : COLOR
     //return tex2D(SpriteTextureSampler, floor(input.TextureCoordinates * ScreenSize) / ScreenSize);
 }
 
-float4 Blur(VertexShaderOutput input) : COLOR
-{
-	return (
-	tex2D(SpriteTextureSampler, input.TextureCoordinates) + 
-	tex2D(SpriteTextureSampler, input.TextureCoordinates + float2(0.0015,0)) + 
-	tex2D(SpriteTextureSampler, input.TextureCoordinates + float2(-0.0015,0)) +
-	tex2D(SpriteTextureSampler, input.TextureCoordinates + float2(0, 0.0015)) + 
-	tex2D(SpriteTextureSampler, input.TextureCoordinates + float2(0, -0.0015))
-	) 
-	/ 5;
-}
+
 
 float4 Posterize(VertexShaderOutput input) : COLOR
 {
@@ -148,27 +136,27 @@ float4 VingetteShader(VertexShaderOutput input) : COLOR
 //        PixelShader = compile PS_SHADERMODEL Blur();
 //    }
 //};
-technique Scanlines
-{
-    pass P0
-    {
-        PixelShader = compile PS_SHADERMODEL Blur();
-    }
-    pass P1
-    {
-        PixelShader = compile PS_SHADERMODEL MainPS();
+//technique Scanlines
+//{
+//    pass P0
+//    {
+//        PixelShader = compile PS_SHADERMODEL Blur();
+//    }
+//    pass P1
+//    {
+//        PixelShader = compile PS_SHADERMODEL MainPS();
 
-    }
-    pass P2
-    {
-        PixelShader = compile PS_SHADERMODEL ChromaticShader();
-    }
-};
+//    }
+//    pass P2
+//    {
+//        PixelShader = compile PS_SHADERMODEL ChromaticShader();
+//    }
+//};
 
-technique Vingette
-{
-	pass P0
-	{
-		PixelShader = compile PS_SHADERMODEL VingetteShader();
-	}
-};
+//technique Vingette
+//{
+//	pass P0
+//	{
+//		PixelShader = compile PS_SHADERMODEL VingetteShader();
+//	}
+//};
