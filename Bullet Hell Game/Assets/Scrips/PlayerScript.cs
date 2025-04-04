@@ -56,6 +56,6 @@ public class PlayerScript : MonoBehaviour
     public void Die()
     {
         DeathUI.SetActive(true);
-        DeathUI.GetComponent<DeadUIScript>().OnDeath();
+        DeathUI.GetComponent<EndUIScript>().Activate();
     }
 }

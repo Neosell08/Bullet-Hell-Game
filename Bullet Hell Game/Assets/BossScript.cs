@@ -16,19 +16,29 @@ public class BossScript : MonoBehaviour
     /// </summary>
     int CurPointIndex;
 
-    float WhiteTimer;
+    float WhiteTimer = 9999;
     bool IsWhite;
+    Vector2 MoveDir;
+    Material DefaultMaterial;
+    SpriteRenderer sr;
+    int hp;
+
     public float WhiteDuration;
     public float Speed;
     public float LerpSpeed;
     public float NewPointDistanceThreshold;
     public int maxHP;
-    Vector2 MoveDir;
+    public Material WhiteMaterial;
+    public EndUIScript WinUI;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        sr = GetComponent<SpriteRenderer>();
+        DefaultMaterial = sr.material;
+        hp = maxHP;
     }
 
     // Update is called once per frame
@@ -49,6 +59,14 @@ public class BossScript : MonoBehaviour
         {
             CurPointIndex = CircularClamp(CurPointIndex + 1, 0, MovePoints.Length - 1);
         }
+        if (IsWhite)
+        {
+            sr.material = WhiteMaterial;
+        }
+        else
+        {
+            sr.material = DefaultMaterial;
+        }
     }
     public static int CircularClamp(int value, int min, int max)
     {
@@ -61,6 +79,17 @@ public class BossScript : MonoBehaviour
             return min;
         }
         return value;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        hp--;
+        WhiteTimer = 0;
+        Destroy(collision.transform.gameObject);
+        if(hp <= 0)
+        {
+            WinUI.gameObject.SetActive(true);
+            WinUI.Activate();
+        }
     }
     private void OnDrawGizmos()
     {

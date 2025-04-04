@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DeadUIScript : MonoBehaviour
+public class EndUIScript : MonoBehaviour
 {
     public void Restart()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    public void OnDeath()
+    public void Activate()
     {
         gameObject.SetActive(true);
         Time.timeScale = 0f;

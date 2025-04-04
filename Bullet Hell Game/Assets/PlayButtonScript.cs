@@ -6,6 +6,6 @@ public class PlayButtonScript : MonoBehaviour
 {
     public void Play()
     {
-        transform.parent.GetComponent<DeadUIScript>().Restart();
+        transform.parent.GetComponent<EndUIScript>().Restart();
     }
 }
