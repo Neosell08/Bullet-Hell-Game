@@ -40,7 +40,6 @@ public class RayBossAttackPattern : MonoBehaviour
                 if (Ray == null)
                 {
                     Ray = Instantiate(RayPrefab, new Vector2(Warning.transform.position.x, 0), Quaternion.Euler(0, 0, 0));
-                    Debug.Log("aaaa");
                     Destroy(Warning);
                     Warning = null;
                 }

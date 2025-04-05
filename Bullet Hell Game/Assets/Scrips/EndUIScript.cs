@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EndUIScript : MonoBehaviour
 {
+    public AudioSource BackgroundMusic;
     public void Restart()
     {
         Time.timeScale = 1f;
@@ -12,6 +13,7 @@ public class EndUIScript : MonoBehaviour
     }
     public void Activate()
     {
+        BackgroundMusic.Stop();
         gameObject.SetActive(true);
         Time.timeScale = 0f;
     }

@@ -30,7 +30,7 @@ public class BossScript : MonoBehaviour
     public int maxHP;
     public Material WhiteMaterial;
     public EndUIScript WinUI;
-    public GameObject ExplosionSFX;
+    public GameObject HitSFX;
 
 
 
@@ -86,7 +86,7 @@ public class BossScript : MonoBehaviour
         hp--;
         WhiteTimer = 0;
         Destroy(collision.transform.gameObject);
-        Instantiate(ExplosionSFX);
+        Instantiate(HitSFX);
         if(hp <= 0)
         {
             WinUI.gameObject.SetActive(true);

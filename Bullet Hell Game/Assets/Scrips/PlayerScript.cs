@@ -9,6 +9,8 @@ public class PlayerScript : MonoBehaviour
     Collider2D Collider;
     public float LerpSpeed;
     public GameObject DeathUI;
+    public GameObject PlayerDeadSFX;
+    public float MoveDistanceThreshold;
 
 
     private void Start()
@@ -20,6 +22,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (IsConnectedToMouse && Time.timeScale > 0)
         {
+            float dist = Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position);
             transform.position = Vector3.Lerp(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position, LerpSpeed);
 
             // Height in world units
@@ -40,7 +43,8 @@ public class PlayerScript : MonoBehaviour
     }
     public void Move(InputAction.CallbackContext context)
     {
-        if (Collider.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)) && context.performed)
+        
+        if (Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position) <= MoveDistanceThreshold && context.started)
         {
             IsConnectedToMouse = true;
         }
@@ -55,7 +59,13 @@ public class PlayerScript : MonoBehaviour
     }
     public void Die()
     {
+        Instantiate(PlayerDeadSFX);
         DeathUI.SetActive(true);
         DeathUI.GetComponent<EndUIScript>().Activate();
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, MoveDistanceThreshold);
     }
 }
