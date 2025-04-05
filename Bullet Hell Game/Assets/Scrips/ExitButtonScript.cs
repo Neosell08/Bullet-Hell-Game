@@ -8,6 +8,7 @@ public class ExitButtonScript : MonoBehaviour
     public string ExitTo = "MainMenu";
     public void ExitGame()
     {
+        
         if (ExitTo == "")
         {
             Application.Quit();

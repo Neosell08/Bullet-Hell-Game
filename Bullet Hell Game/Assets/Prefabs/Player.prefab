@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: fbab9a9faca925f429773c551fc1bc7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,6 +103,8 @@ MonoBehaviour:
   IsConnectedToMouse: 0
   LerpSpeed: 0.75
   DeathUI: {fileID: 0}
+  PlayerDeadSFX: {fileID: 0}
+  MoveDistanceThreshold: 0
 --- !u!114 &8073603683409178198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,5 +215,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShootDistanceThreshold: 1
-  HasShot: 0
   BulletPrefab: {fileID: 856112845207371967, guid: 33bb309525bf7a940a52d6825bbee8d7, type: 3}
+  ShootSFX: []
+  ShootSeperator: {fileID: 0}

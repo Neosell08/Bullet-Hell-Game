@@ -8,7 +8,9 @@ public class TimeTextScript : MonoBehaviour
 {
     private void OnEnable()
     {
-        GetComponent<TextMeshProUGUI>().text = "Time: " + Globals.TimeToString(Time.time - Camera.main.GetComponent<GameTimeScript>().StartTime);
+        float time = Time.time - Camera.main.GetComponent<GameTimeScript>().StartTime;
+        GetComponent<TextMeshProUGUI>().text = "Time: " + Globals.TimeToString(time);
+        
     }
     
 }

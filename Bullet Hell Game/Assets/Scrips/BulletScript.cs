@@ -48,7 +48,7 @@ public class BulletScript : MonoBehaviour
             
             Destroy(gameObject);
         }
-        if (transform.position.y > maxY + 10)
+        if (transform.position.y > maxY + 1)
         {
             Destroy(gameObject);
         }
