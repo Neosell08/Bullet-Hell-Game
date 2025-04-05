@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a1a43c7df9557047889ce6d2fc26b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 3
+  Speed: 2
   DebrisAmount: 0
   DebrisPrefab: {fileID: 0}
   SpawnDebris: 0

@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 79209417545333571, guid: c220bbbc26cee5743a3c3537ff6ed4f8, type: 3}
-  MinMaxDelay: {x: 0.6, y: 1.1}
+  MinMaxDelay: {x: 0.8, y: 0.95}
   BulletAmount: 8
 --- !u!114 &277446729
 MonoBehaviour:
@@ -765,7 +765,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fa056e8a1e7785448ae802e630415e5f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.653
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2236,9 +2236,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1250377185}
     - target: {fileID: 8044610804608374023, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: maxHP
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044610804608374023, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: HitSFX
       value: 
       objectReference: {fileID: 2394755481385814762, guid: 5833698cbe822b0429fe31b7d4655993, type: 3}
+    - target: {fileID: 8044610804608374023, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: LerpSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8044610804608374023, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: ExplosionSFX
       value: 
@@ -2409,7 +2417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3458066401318080421, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
       propertyPath: ShootDistanceThreshold
-      value: 2
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 3458066401318080421, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
       propertyPath: ShootSFX.Array.data[0]
