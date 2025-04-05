@@ -683,7 +683,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 23ead1d28b76a6f49b6379ad75459dc0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6556604, b: 0.6556604, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2309,6 +2309,18 @@ PrefabInstance:
       propertyPath: m_ExcludeLayers.m_Bits
       value: 2048
       objectReference: {fileID: 0}
+    - target: {fileID: 2294661272833922578, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2294661272833922578, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2294661272833922578, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5374400151093632811, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -2410,7 +2422,7 @@ PrefabInstance:
       objectReference: {fileID: 2022356510}
     - target: {fileID: 4715065902242795384, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
       propertyPath: LerpSpeed
-      value: 2
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4715065902242795384, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
       propertyPath: PlayerDeadSFX
