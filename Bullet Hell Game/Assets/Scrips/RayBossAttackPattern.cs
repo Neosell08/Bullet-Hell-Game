@@ -68,7 +68,7 @@ public class RayBossAttackPattern : MonoBehaviour
                 Destroy(WarningSign); // Remove warning sign after ray is instantiated
                 WarningSign = null;
             }
-            if (SidewaysRay == null && ElapsedTime > Delay + WarningDelay + SidewaysDelay)
+            if (DoSideways && SidewaysRay == null && ElapsedTime > Delay + WarningDelay + SidewaysDelay)
             {
 
                 Vector2 rayPosition = new Vector2(0, SidewaysWarningSign.transform.position.y);

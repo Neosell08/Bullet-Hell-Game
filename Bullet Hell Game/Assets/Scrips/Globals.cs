@@ -12,7 +12,7 @@ public static class Globals
     }
     public static string TimeToString(float seconds)
     {
-        if (seconds > 3599) { return "A lot"; }
+        if (seconds > 3599) { return "NaN"; }
 
 
         float mins = MathF.Floor(seconds / 60);
