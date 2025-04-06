@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 103631020457439374}
   - component: {fileID: 8044610804608374023}
   - component: {fileID: 1503474979669618514}
+  - component: {fileID: 1747592680371874413}
+  - component: {fileID: 4262387499894186291}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -127,11 +129,12 @@ MonoBehaviour:
   - {x: 3.15, y: 1.5}
   WhiteDuration: 0.5
   Speed: 3
-  LerpSpeed: 0.05
+  LerpSpeed: 0.1
   NewPointDistanceThreshold: 0.2
-  maxHP: 15
+  maxHP: 70
   WhiteMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   WinUI: {fileID: 0}
+  HitSFX: {fileID: 2394755481385814762, guid: 5833698cbe822b0429fe31b7d4655993, type: 3}
 --- !u!61 &1503474979669618514
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,7 +150,7 @@ BoxCollider2D:
     m_Bits: 1024
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -177,3 +180,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.000987, y: 1.1118401}
   m_EdgeRadius: 0
+--- !u!114 &1747592680371874413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5374400151093632811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1e2f4c6f7d32948b5d808614888a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletPrefab: {fileID: 79209417545333571, guid: c220bbbc26cee5743a3c3537ff6ed4f8, type: 3}
+  MinMaxDelay: {x: 0.8, y: 0.95}
+  BulletAmount: 8
+--- !u!114 &4262387499894186291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5374400151093632811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ee88c3e87c9a541a0ec7503b06f141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RayPrefab: {fileID: 3951259684223421498, guid: 19247870d6933c84db21548cf9bb71eb, type: 3}
+  WarningSignPrefab: {fileID: 2686041283449787337, guid: 928a1e4a7fb17b3478a9028124a8b78e, type: 3}
+  MinMaxDelay: {x: 8, y: 12}
+  WarningDelay: 2
+  WarningY: 4.3
+  player: {fileID: 0}
+  RayDuration: 2

@@ -175,4 +175,4 @@ MonoBehaviour:
   DebrisAmount: 0
   DebrisPrefab: {fileID: 0}
   SpawnDebris: 0
-  Intertia: 2
+  Intertia: 1000

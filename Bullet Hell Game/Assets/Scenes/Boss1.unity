@@ -269,45 +269,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122680517}
   m_CullTransparentMesh: 1
---- !u!1 &277446722 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5374400151093632811, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
-  m_PrefabInstance: {fileID: 6418870079084886277}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &277446728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 277446722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe1e2f4c6f7d32948b5d808614888a2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 79209417545333571, guid: c220bbbc26cee5743a3c3537ff6ed4f8, type: 3}
-  MinMaxDelay: {x: 0.8, y: 0.95}
-  BulletAmount: 8
---- !u!114 &277446729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 277446722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82ee88c3e87c9a541a0ec7503b06f141, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RayPrefab: {fileID: 3951259684223421498, guid: 19247870d6933c84db21548cf9bb71eb, type: 3}
-  WarningSignPrefab: {fileID: 2686041283449787337, guid: 928a1e4a7fb17b3478a9028124a8b78e, type: 3}
-  MinMaxDelay: {x: 8, y: 12}
-  WarningDelay: 2
-  WarningY: 4.3
-  player: {fileID: 1427183896}
-  RayDuration: 2
 --- !u!1 &353016933
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +925,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.653
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2902,22 +2863,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1503474979669618514, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 2048
-      objectReference: {fileID: 0}
-    - target: {fileID: 2294661272833922578, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2294661272833922578, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2294661272833922578, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 4262387499894186291, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1427183896}
     - target: {fileID: 5374400151093632811, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -2926,32 +2875,10 @@ PrefabInstance:
       propertyPath: WinUI
       value: 
       objectReference: {fileID: 1250377185}
-    - target: {fileID: 8044610804608374023, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
-      propertyPath: maxHP
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 8044610804608374023, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
-      propertyPath: HitSFX
-      value: 
-      objectReference: {fileID: 2394755481385814762, guid: 5833698cbe822b0429fe31b7d4655993, type: 3}
-    - target: {fileID: 8044610804608374023, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
-      propertyPath: LerpSpeed
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8044610804608374023, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
-      propertyPath: ExplosionSFX
-      value: 
-      objectReference: {fileID: 1013499581193372692, guid: 619a01b26472f5d449decc7652887f9a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5374400151093632811, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 277446728}
-    - targetCorrespondingSourceObject: {fileID: 5374400151093632811, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 277446729}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
 --- !u!1001 &6793437424042839309
 PrefabInstance:
@@ -3062,6 +2989,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 940156218662519567, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 2671479830871320705, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6028347
@@ -3106,42 +3037,10 @@ PrefabInstance:
       propertyPath: ShootSeperator
       value: 
       objectReference: {fileID: 1402606191}
-    - target: {fileID: 3458066401318080421, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
-      propertyPath: ShootSFX.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3458066401318080421, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
-      propertyPath: ShootDistanceThreshold
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 3458066401318080421, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
-      propertyPath: ShootSFX.Array.data[0]
-      value: 
-      objectReference: {fileID: 2512438922176670492, guid: f9b58c11f5ae3aa4887f918312fccf56, type: 3}
-    - target: {fileID: 3458066401318080421, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
-      propertyPath: ShootSFX.Array.data[1]
-      value: 
-      objectReference: {fileID: 8716641280972863271, guid: bc8534a531884bc4da057ac3cf669548, type: 3}
-    - target: {fileID: 3458066401318080421, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
-      propertyPath: ShootSFX.Array.data[2]
-      value: 
-      objectReference: {fileID: 4671079309496216759, guid: e9806a16dd21b33469c2740557b5ac61, type: 3}
     - target: {fileID: 4715065902242795384, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
       propertyPath: DeathUI
       value: 
       objectReference: {fileID: 2022356510}
-    - target: {fileID: 4715065902242795384, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
-      propertyPath: LerpSpeed
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4715065902242795384, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
-      propertyPath: PlayerDeadSFX
-      value: 
-      objectReference: {fileID: 3609518139797297712, guid: 45693ba14acd47449bbc449a5102fd94, type: 3}
-    - target: {fileID: 4715065902242795384, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
-      propertyPath: MoveDistanceThreshold
-      value: 0.63
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -15,13 +15,14 @@ public class BulletScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.inertia = Intertia;
+        rb.velocity = transform.right * Speed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = transform.right * Speed;
+        transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + Intertia*Time.deltaTime);
+        
         // Height in world units
         float height = 2f * Camera.main.orthographicSize;
 
