@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e04aefc1cd3f749884988ae95375c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootDistanceThreshold: 120
+  ShootDistanceThreshold: 100
   BulletPrefab: {fileID: 856112845207371967, guid: 33bb309525bf7a940a52d6825bbee8d7, type: 3}
   ShootSFX:
   - {fileID: 2512438922176670492, guid: f9b58c11f5ae3aa4887f918312fccf56, type: 3}

@@ -12,11 +12,16 @@ public class RayBossAttackPattern : MonoBehaviour
     public float WarningY;
     public GameObject player;
     public float RayDuration;
-
+    [Header("Sideways")]
+    public bool DoSideways;
+    public float SidewaysDelay;
+    public float WarningX;
     float Delay;
-    float Timer;
-    GameObject Warning;
+    float ElapsedTime;
+    GameObject WarningSign;
     GameObject Ray;
+    GameObject SidewaysWarningSign;
+    GameObject SidewaysRay;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,41 +29,90 @@ public class RayBossAttackPattern : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        Timer += Time.deltaTime;
-        if (Timer > Delay)
+        ElapsedTime += Time.deltaTime;
+
+        if (ElapsedTime > Delay)
         {
-            if (Warning == null && Timer < WarningDelay + Delay)
+            HandleWarningSign();
+            HandleRay();
+        }
+    }
+
+    private void HandleWarningSign()
+    {
+        // Instantiate warning sign if none exists and within warning delay window
+        if (WarningSign == null && ElapsedTime < Delay + WarningDelay && Ray == null)
+        {
+            Vector3 warningPosition = new Vector3(player.transform.position.x, WarningY, 0);
+            WarningSign = Instantiate(WarningSignPrefab, warningPosition, Quaternion.identity);
+        }
+        if (DoSideways && SidewaysWarningSign == null && ElapsedTime < Delay + WarningDelay + SidewaysDelay && SidewaysRay == null)
+        {
+            Vector3 warningPosition = new Vector3(WarningX, player.transform.position.y, 0);
+            SidewaysWarningSign = Instantiate(WarningSignPrefab, warningPosition, Quaternion.identity);
+        }
+    }
+
+    private void HandleRay()
+    {
+        // Instantiate ray after warning delay
+        if (ElapsedTime > Delay + WarningDelay )
+        {
+            if (Ray == null && ElapsedTime < Delay + WarningDelay + RayDuration)
             {
-                Warning = Instantiate(WarningSignPrefab, new Vector3(player.transform.position.x, WarningY), Quaternion.Euler(0, 0, 0));
+                Vector2 rayPosition = new Vector2(WarningSign.transform.position.x, 0);
+                Ray = Instantiate(RayPrefab, rayPosition, Quaternion.identity);
+
+                Destroy(WarningSign); // Remove warning sign after ray is instantiated
+                WarningSign = null;
+            }
+            if (SidewaysRay == null && ElapsedTime > Delay + WarningDelay + SidewaysDelay)
+            {
+
+                Vector2 rayPosition = new Vector2(0, SidewaysWarningSign.transform.position.y);
+                SidewaysRay = Instantiate(RayPrefab, rayPosition, Quaternion.Euler(0, 0, 90));
+
+                Destroy(SidewaysWarningSign); // Remove warning sign after ray is instantiated
+                SidewaysWarningSign = null;
             }
 
-            if (Timer > WarningDelay + Delay)
+            // Reset timer and destroy ray after its duration
+            if (Ray != null && ElapsedTime > Delay + WarningDelay + RayDuration)
             {
-                
-                if (Ray == null)
+                Destroy(Ray);
+                Ray = null;
+                if (!DoSideways)
                 {
-                    Ray = Instantiate(RayPrefab, new Vector2(Warning.transform.position.x, 0), Quaternion.Euler(0, 0, 0));
-                    Destroy(Warning);
-                    Warning = null;
+                    ResetCycle();
                 }
-
-                if (Timer > WarningDelay + Delay + RayDuration)
-                {
-                    Timer = 0;
-                    Delay = Random.Range(MinMaxDelay.x, MinMaxDelay.y);
-                    Destroy(Ray);
-                    Ray = null;
-                }
-                
             }
+            if (ElapsedTime > Delay + WarningDelay + RayDuration + SidewaysDelay && DoSideways)
+            {
+                ResetCycle();
+            }
+        }
+    }
 
+    private void ResetCycle()
+    {
+        ElapsedTime = 0f;
+        Delay = Random.Range(MinMaxDelay.x, MinMaxDelay.y);
+
+        if (SidewaysRay != null)
+        {
+            Destroy(SidewaysRay);
+            SidewaysRay = null;
         }
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(new Vector2(0, WarningY), 0.1f);
+        Gizmos.DrawSphere(new Vector2(WarningX, 0), 0.1f);
     }
+
 }
+
+
