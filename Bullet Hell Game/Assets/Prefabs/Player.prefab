@@ -105,6 +105,7 @@ MonoBehaviour:
   DeathUI: {fileID: 0}
   PlayerDeadSFX: {fileID: 3609518139797297712, guid: 45693ba14acd47449bbc449a5102fd94, type: 3}
   MoveDistanceThreshold: 0.63
+  WASDSpeed: 1
 --- !u!114 &8073603683409178198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +163,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d392d759-cac9-465a-b380-e944d180a46e
     m_ActionName: Player/Move[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4715065902242795384}
+        m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
+        m_MethodName: OnMoveWASD
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 600ef72e-2e43-42a1-8689-3bc8be9b1c0e
+    m_ActionName: Player/MoveWASD[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

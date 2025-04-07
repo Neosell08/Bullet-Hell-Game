@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject DeathUI;
     public GameObject PlayerDeadSFX;
     public float MoveDistanceThreshold;
+    public float WASDSpeed;
 
 
     private void Start()
@@ -52,6 +53,17 @@ public class PlayerScript : MonoBehaviour
         {
             IsConnectedToMouse = false;
         }
+    }
+    public void OnMoveWASD(InputAction.CallbackContext context)
+    {
+        // 1. Read input as Vector2
+        Vector2 input = context.ReadValue<Vector2>();
+
+        // 2. Convert to Vector3 (XZ plane)
+        Vector3 movement = new Vector3(input.x, 0, input.y);
+
+        // 3. Apply movement (frame-rate independent)
+        transform.position += movement * (WASDSpeed * Time.deltaTime);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
