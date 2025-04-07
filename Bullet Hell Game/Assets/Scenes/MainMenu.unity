@@ -1573,7 +1573,7 @@ MonoBehaviour:
   Scene: Boss1
   Text: {fileID: 1825529034}
   StarTimes:
-  - 35
+  - 30
   - 50
   - 80
   Stars:
