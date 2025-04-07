@@ -338,7 +338,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 23ead1d28b76a6f49b6379ad75459dc0, type: 3}
-  m_Color: {r: 0.94716984, g: 0.6272766, b: 0.6272766, a: 1}
+  m_Color: {r: 0.4139664, g: 0.3726415, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -739,6 +739,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 161353013828525340, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
   m_PrefabInstance: {fileID: 8473542230224398810}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1993199570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4433971002733105494, guid: e48eeb98dc4a147409a63f14289cc500, type: 3}
+  m_PrefabInstance: {fileID: 1565422472261738690}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2022356510 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4996819697439844020, guid: 885ef14ebb3b2f34e8d4df82ae274a2b, type: 3}
@@ -965,6 +970,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2108514302}
     m_Modifications:
+    - target: {fileID: 705750431667063187, guid: 8a1e207c09c91524d8f8f915951647e4, type: 3}
+      propertyPath: FullStar
+      value: 
+      objectReference: {fileID: 21300000, guid: eadaffb322b480e4abd8993747d49dda, type: 3}
     - target: {fileID: 3720606910693035754, guid: 8a1e207c09c91524d8f8f915951647e4, type: 3}
       propertyPath: Countdown
       value: 
@@ -1179,9 +1188,17 @@ PrefabInstance:
       value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8637393903078936223, guid: e48eeb98dc4a147409a63f14289cc500, type: 3}
+      propertyPath: FullStar
+      value: 
+      objectReference: {fileID: 21300000, guid: eadaffb322b480e4abd8993747d49dda, type: 3}
+    - target: {fileID: 8637393903078936223, guid: e48eeb98dc4a147409a63f14289cc500, type: 3}
       propertyPath: Stars.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8637393903078936223, guid: e48eeb98dc4a147409a63f14289cc500, type: 3}
+      propertyPath: Stars.Array.data[0]
+      value: 
+      objectReference: {fileID: 1993199570}
     - target: {fileID: 8637393903078936223, guid: e48eeb98dc4a147409a63f14289cc500, type: 3}
       propertyPath: StarTimes.Array.size
       value: 1
@@ -1210,7 +1227,7 @@ PrefabInstance:
     - target: {fileID: 103631020457439374, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 41615381abd05534b844bc717acb9b2a, type: 2}
+      objectReference: {fileID: 9100000, guid: e98a18b97e6e92447a87996bc94aa53c, type: 2}
     - target: {fileID: 1482049731751930662, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1262,7 +1279,7 @@ PrefabInstance:
     - target: {fileID: 2294661272833922578, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 387402416, guid: e251b237d60fed347a1b3d401bfca42d, type: 3}
+      objectReference: {fileID: 1805033797, guid: ff469ca2e40434b4e9385455c935d22d, type: 3}
     - target: {fileID: 4262387499894186291, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: player
       value: 
@@ -1336,6 +1353,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8527a825dcea24a81ccaac2b9a5890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  connection: {fileID: 0}
+  duration: 0
 --- !u!1001 &7005141548116897940
 PrefabInstance:
   m_ObjectHideFlags: 0

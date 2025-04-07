@@ -296,6 +296,9 @@ MonoBehaviour:
   - scene: Boss1Hard
     times:
     - 1e+12
+  - scene: Boss1ExtremelyHard
+    times:
+    - 1e+12
 --- !u!1 &830370498
 GameObject:
   m_ObjectHideFlags: 0
