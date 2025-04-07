@@ -1300,6 +1300,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1250377185}
     - target: {fileID: 8044610804608374023, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: maxHP
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044610804608374023, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: LerpSpeed
       value: 0.15
       objectReference: {fileID: 0}

@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 150565161}
   - component: {fileID: 150565164}
   - component: {fileID: 150565165}
+  - component: {fileID: 150565166}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -274,6 +275,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Delay: 5
   Scene: MainMenu
+--- !u!114 &150565166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150565160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d158c4729a8294ebee7254c7716d8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneStarTimes:
+  - scene: Boss1
+    times:
+    - 35
+    - 50
+    - 80
+  - scene: Boss1Hard
+    times:
+    - 1e+12
 --- !u!1 &830370498
 GameObject:
   m_ObjectHideFlags: 0
