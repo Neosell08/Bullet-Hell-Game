@@ -32,9 +32,7 @@ public class VolumeSliderScript : MonoBehaviour
         if (volume == 0)
         {
             masterMixer.SetFloat("MasterVolume", -999999f);
-            Debug.Log("aa");
         }
-        Debug.Log(volume);
 
         // Save setting
         PlayerPrefs.SetFloat("MasterVolume", volume);
