@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -81,6 +82,7 @@ public class BossScript : MonoBehaviour
         }
         return value;
     }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         hp--;
