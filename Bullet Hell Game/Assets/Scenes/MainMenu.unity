@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 30770891}
   - component: {fileID: 30770890}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Star 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -871,7 +871,7 @@ GameObject:
   - component: {fileID: 552081225}
   - component: {fileID: 552081224}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Star 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1494,7 +1494,7 @@ GameObject:
   - component: {fileID: 1020159431}
   - component: {fileID: 1020159430}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Star 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1856,15 +1856,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scene: Boss1
   Text: {fileID: 1825529034}
-  StarTimes:
-  - 30
-  - 50
-  - 80
   Stars:
   - {fileID: 1020159428}
   - {fileID: 30770888}
   - {fileID: 552081222}
   FullStarTexture: {fileID: 21300000, guid: 44dab3b506a734d42b96ee410cdd1840, type: 3}
+  RequiredTimeScene: 
+  RequiredTime: 0
+  Lock: {fileID: 0}
 --- !u!1 &1340383726
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,6 +2362,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825529032}
   m_CullTransparentMesh: 1
+--- !u!1 &1913472405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1913472406}
+  - component: {fileID: 1913472408}
+  - component: {fileID: 1913472407}
+  m_Layer: 5
+  m_Name: Lock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1913472406
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913472405}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 7.28, y: 7.28, z: 7.28}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 2106306575}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1913472407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913472405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 9f8a534ef5883894aa5e0c4f50bc8165, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1913472408
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913472405}
+  m_CullTransparentMesh: 1
 --- !u!1 &2059308902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,6 +2546,7 @@ RectTransform:
   m_Children:
   - {fileID: 887072272}
   - {fileID: 483630352}
+  - {fileID: 1913472406}
   m_Father: {fileID: 1467065769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2493,11 +2568,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scene: Boss1Hard
   Text: {fileID: 997607682}
-  StarTimes:
-  - 9999999
   Stars:
   - {fileID: 1254732451}
-  FullStarTexture: {fileID: 21300000, guid: 44dab3b506a734d42b96ee410cdd1840, type: 3}
+  FullStarTexture: {fileID: 21300000, guid: 42cfd57ad0e49f946944f7b6d8de779b, type: 3}
+  RequiredTimeScene: Boss1
+  RequiredTime: 50
+  Lock: {fileID: 1913472405}
 --- !u!114 &2106306577
 MonoBehaviour:
   m_ObjectHideFlags: 0

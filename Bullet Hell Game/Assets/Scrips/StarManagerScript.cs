@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,7 +9,6 @@ using UnityEngine.UI;
 public class StarManagerScript : MonoBehaviour
 {
     public GameObject[] Stars;
-    public float[] StarTimes;
     public Sprite FullStar;
     public bool AlwaysTakeRecord;
     public bool SetRecord = true;
@@ -27,11 +28,23 @@ public class StarManagerScript : MonoBehaviour
         PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + "Record", time);
         for (int i = 0; i < Stars.Length; i++)
         {
-            
-            if (StarTimes[i] >= time)
+            float starTime = PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + "StarTime" + Convert.ToString(i));
+            if (starTime >= time)
             {
                 Stars[i].GetComponent<Image>().sprite = FullStar;
             }
+
+            string timeString;
+            if (starTime < 3600)
+            {
+                timeString = Globals.TimeToString(starTime);
+            }
+            else
+            {
+                timeString = "Any Time";
+            }
+
+            Stars[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = timeString;
         }
     }
 }
