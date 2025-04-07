@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,19 +10,15 @@ public class RayBossAttackPattern : MonoBehaviour
     public GameObject WarningSignPrefab;
     public Vector2 MinMaxDelay;
     public float WarningDelay;
-    public float WarningY;
+    public float WarningCoordinate;
     public GameObject player;
     public float RayDuration;
-    [Header("Sideways")]
-    public bool DoSideways;
-    public float SidewaysDelay;
-    public float WarningX;
+    public ConnectedRay[] Connecteds;
+
     float Delay;
     float ElapsedTime;
     GameObject WarningSign;
     GameObject Ray;
-    GameObject SidewaysWarningSign;
-    GameObject SidewaysRay;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,11 +45,6 @@ public class RayBossAttackPattern : MonoBehaviour
             Vector3 warningPosition = new Vector3(player.transform.position.x, WarningY, 0);
             WarningSign = Instantiate(WarningSignPrefab, warningPosition, Quaternion.identity);
         }
-        if (DoSideways && SidewaysWarningSign == null && ElapsedTime < Delay + WarningDelay + SidewaysDelay && SidewaysRay == null)
-        {
-            Vector3 warningPosition = new Vector3(WarningX, player.transform.position.y, 0);
-            SidewaysWarningSign = Instantiate(WarningSignPrefab, warningPosition, Quaternion.identity);
-        }
     }
 
     private void HandleRay()
@@ -68,43 +60,29 @@ public class RayBossAttackPattern : MonoBehaviour
                 Destroy(WarningSign); // Remove warning sign after ray is instantiated
                 WarningSign = null;
             }
-            if (DoSideways && SidewaysRay == null && ElapsedTime > Delay + WarningDelay + SidewaysDelay)
-            {
-
-                Vector2 rayPosition = new Vector2(0, SidewaysWarningSign.transform.position.y);
-                SidewaysRay = Instantiate(RayPrefab, rayPosition, Quaternion.Euler(0, 0, 90));
-
-                Destroy(SidewaysWarningSign); // Remove warning sign after ray is instantiated
-                SidewaysWarningSign = null;
-            }
-
             // Reset timer and destroy ray after its duration
             if (Ray != null && ElapsedTime > Delay + WarningDelay + RayDuration)
             {
                 Destroy(Ray);
                 Ray = null;
-                if (!DoSideways)
-                {
-                    ResetCycle();
-                }
-            }
-            if (ElapsedTime > Delay + WarningDelay + RayDuration + SidewaysDelay && DoSideways)
-            {
-                ResetCycle();
+                TryResetCycle();
             }
         }
     }
 
-    private void ResetCycle()
+    private void TryResetCycle()
     {
-        ElapsedTime = 0f;
-        Delay = Random.Range(MinMaxDelay.x, MinMaxDelay.y);
-
-        if (SidewaysRay != null)
+        if (Connecteds.All(x => x.CycleDone))
         {
-            Destroy(SidewaysRay);
-            SidewaysRay = null;
+            ElapsedTime = 0f;
+            Delay = Random.Range(MinMaxDelay.x, MinMaxDelay.y);
+
+            foreach (ConnectedRay connected in Connecteds)
+            {
+                connected.Reset();
+            }
         }
+        
     }
     private void OnDrawGizmos()
     {
