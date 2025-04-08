@@ -1328,7 +1328,8 @@ PrefabInstance:
       propertyPath: NewPointDistanceThreshold
       value: 0.25
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8044610804608374023, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1350,11 +1351,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6418870079084886278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa8527a825dcea24a81ccaac2b9a5890, type: 3}
+  m_Script: {fileID: 11500000, guid: dfca75d281b43184e8cdc8e4fd2c9096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connection: {fileID: 0}
-  duration: 0
 --- !u!1001 &7005141548116897940
 PrefabInstance:
   m_ObjectHideFlags: 0
