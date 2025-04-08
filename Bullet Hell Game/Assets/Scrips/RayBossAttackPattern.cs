@@ -84,7 +84,7 @@ public class RayBossAttackPattern : MonoBehaviour
         {
             if (!Rays[i].ConnectedToPrevious)
             {
-                Debug.Log("Created New CountDown" + Convert.ToString(i));
+                
                 CancellationTokenSource cancellationToken = new CancellationTokenSource();
                 StartCoroutine(CountDownRay(rayDelays[i], Rays[i]));
                 
@@ -95,16 +95,13 @@ public class RayBossAttackPattern : MonoBehaviour
     
     public IEnumerator CountDownRay(float delay, RayInfo info)
     { 
-        Debug.Log("Aaa");
+
         //wait for delay
         yield return new WaitForSeconds(delay);
 
-        //Check if operation has been cancelled
-        Debug.Log("Aaa22222");
         //make ray
         
         StartCoroutine(MakeRay(info.Sideways, info.RayDuration, info.WarningDelay, info.PreDefinedCoord));
-        Debug.Log("Aaa3333");
         
         if (info.ConnectedToPrevious)
         {
@@ -145,13 +142,10 @@ public class RayBossAttackPattern : MonoBehaviour
     public IEnumerator MakeRay(bool sideways, float rayDuration, float warningDelay, float? preDefinedcoord = null)
     {
         //prepare vars
-       
-
-        Debug.Log("hello");
-        Debug.Log("hello1");
+      
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         float playerCoord = sideways ? player.transform.position.y : player.transform.position.x;
-        Debug.Log("hello2");
+
         float tema = preDefinedcoord ?? playerCoord;
         float temp = 2f;
         Vector2 warningPos = sideways ? new Vector2(WarningCoord, temp) : new Vector2(temp, WarningCoord);
@@ -171,7 +165,7 @@ public class RayBossAttackPattern : MonoBehaviour
         yield return new WaitForSeconds(rayDuration);
 
         Destroy(ray);
-        Debug.Log("hello3");
+
     }
 
     float TotalDelay(List<RayInfo> rays, int index)
