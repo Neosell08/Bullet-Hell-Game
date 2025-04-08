@@ -26,12 +26,13 @@ public class LevelButtonScript : MonoBehaviour
     public void Start()
     {
         
-        if (PlayerPrefs.HasKey(RequiredTimeScene + "Record") && PlayerPrefs.GetFloat(RequiredTimeScene + "Record") > PlayerPrefs.GetFloat(RequiredTimeScene + "StarTime" + Convert.ToString(RequiredStars-1)))
+        if (RequiredTimeScene != "" &&(!PlayerPrefs.HasKey(RequiredTimeScene + "Record") || PlayerPrefs.GetFloat(RequiredTimeScene + "Record") > PlayerPrefs.GetFloat(RequiredTimeScene + "StarTime" + Convert.ToString(RequiredStars))))
         {
             isLocked = true;
             GetComponent<Button>().interactable = false;
             Lock.SetActive(true);
         }
+
         float record;
         if (!PlayerPrefs.HasKey(Scene + "Record"))
         {
