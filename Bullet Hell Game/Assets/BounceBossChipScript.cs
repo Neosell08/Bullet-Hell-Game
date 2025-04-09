@@ -1,21 +1,22 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class BounceBossChipScript : MonoBehaviour
 {
     public float Speed;
-    public int DebrisAmount;
-    public GameObject DebrisPrefab;
-    public bool SpawnDebris;
+    public float Bounciness;
+    public float WallOffset;
     public float Inertia;
+
+    Vector2 velocity;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
+        velocity = transform.right * Speed;
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.right * Speed;
+        rb.velocity = velocity;
     }
 
     // Update is called once per frame
@@ -35,24 +36,16 @@ public class BulletScript : MonoBehaviour
         float maxX = camPosition.x + width / 2f;
         float minY = camPosition.y - height / 2f;
         float maxY = camPosition.y + height / 2f;
-        if (transform.position.x < minX || transform.position.x > maxX || transform.position.y < minY )
+        if (transform.position.y < minY || transform.position.y > maxY)
         {
-            if (SpawnDebris)
-            {
-                float randomRotation = UnityEngine.Random.Range(0f, 360f);
-                for (int i = 0; i < DebrisAmount; i++)
-                {
-                    float rotation = (360 * i / DebrisAmount) + randomRotation;
-                    Instantiate(DebrisPrefab, transform.position, Quaternion.Euler(0, 0, rotation));
-                }
-            }
-            
             Destroy(gameObject);
         }
-        if (transform.position.y > maxY + 1)
+        
+        if (transform.position.x > maxX )
         {
-            Destroy(gameObject);
+            Vector3 rotatedVector = Quaternion.AngleAxis(-45, Vector2.up) * velocity;
+            rb.velocity = rotatedVector;
+            Debug.Log(rotatedVector); // Output: Rotated vector
         }
     }
-    
 }

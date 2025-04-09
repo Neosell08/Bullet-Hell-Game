@@ -97,11 +97,18 @@ public class RayBossAttackPattern : MonoBehaviour
     { 
 
         //wait for delay
+        if (delay <= 0f)
+        {
+            while (Time.timeScale <= 0)
+            {
+                yield return new WaitForSeconds(delay);
+            }
+        }
         yield return new WaitForSeconds(delay);
 
         //make ray
         
-        StartCoroutine(MakeRay(info.Sideways, info.RayDuration, info.WarningDelay, info.PreDefinedCoord));
+        StartCoroutine(MakeRay(info.Sideways, info.RayDuration, info.WarningDelay, info.UsePreDefindedCoord ? info.PreDefinedCoord : null));
         
         if (info.ConnectedToPrevious)
         {
@@ -117,21 +124,27 @@ public class RayBossAttackPattern : MonoBehaviour
                 else
                 {
                     int firstIndex = FindFirstInChain(Rays, index);
-                    CountDownRay(rayDelays[firstIndex], Rays[firstIndex]);
+                    StartCoroutine(CountDownRay(rayDelays[firstIndex], Rays[firstIndex]));
                     
                 }
             }
         }
         else
         {
+            
             if (Rays.Contains(info))
             {
                 int index = Rays.IndexOf(info);
                 //if is not last
+                
                 if (index < Rays.Count - 1 && Rays[index+1].ConnectedToPrevious)
                 {
                     
                     StartCoroutine(CountDownRay(rayDelays[index + 1], Rays[index + 1]));
+                }
+                else
+                {
+                    StartCoroutine(CountDownRay(Random.Range(info.MinMaxDelay.x, info.MinMaxDelay.y), info));
                 }
 
             }
@@ -146,8 +159,8 @@ public class RayBossAttackPattern : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         float playerCoord = sideways ? player.transform.position.y : player.transform.position.x;
 
-        float tema = preDefinedcoord ?? playerCoord;
-        float temp = 2f;
+        float temp = preDefinedcoord ?? playerCoord;
+        
         Vector2 warningPos = sideways ? new Vector2(WarningCoord, temp) : new Vector2(temp, WarningCoord);
         
         //spawn warning sign 

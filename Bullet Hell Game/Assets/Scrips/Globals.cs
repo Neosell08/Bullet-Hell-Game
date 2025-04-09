@@ -20,13 +20,20 @@ public static class Globals
         seconds = MathF.Floor(seconds % 60);
         return (mins < 10 ? "0" : "") + mins + " : " + (seconds < 10 ? "0" : "") + seconds;
     }
-    public static async Task WaitForSecondsAsync(float seconds)
+    public static float RotationBetweenVectors(this Vector2 v1, Vector2 v2)
     {
-        float elapsed = 0f;
-        while (elapsed < seconds)
-        {
-            await Task.Yield(); // Wait for the next frame
-            elapsed += Time.deltaTime; // Accumulates scaled time
-        }
+        Vector2 direction = v2 - v1;
+        return Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+    }
+    public static Vector2 RotateVector(Vector2 v, float degrees)
+    {
+        float radians = degrees * Mathf.Deg2Rad; // Convert degrees to radians
+        float cos = Mathf.Cos(radians);
+        float sin = Mathf.Sin(radians);
+
+        return new Vector2(
+            v.x * cos - v.y * sin, // X component
+            v.x * sin + v.y * cos  // Y component
+        );
     }
 }
