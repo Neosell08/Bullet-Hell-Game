@@ -33,7 +33,7 @@ public class StarManagerScript : MonoBehaviour
             {
                 Stars[i].GetComponent<Image>().sprite = FullStar;
             }
-
+            Debug.Log(starTime);
             string timeString;
             if (starTime < 3600)
             {

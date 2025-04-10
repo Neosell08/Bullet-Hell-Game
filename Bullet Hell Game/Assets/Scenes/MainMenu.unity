@@ -1417,7 +1417,7 @@ MonoBehaviour:
   - {fileID: 1435970929}
   FullStarTexture: {fileID: 21300000, guid: 42cfd57ad0e49f946944f7b6d8de779b, type: 3}
   RequiredTimeScene: Boss1Hard
-  RequiredStars: 1
+  RequiredStars: 0
   Lock: {fileID: 1365726663}
 --- !u!114 &959646268
 MonoBehaviour:

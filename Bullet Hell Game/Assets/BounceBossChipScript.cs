@@ -41,11 +41,18 @@ public class BounceBossChipScript : MonoBehaviour
             Destroy(gameObject);
         }
         
-        if (transform.position.x > maxX )
+        if (transform.position.x > maxX + WallOffset)
         {
-            Vector3 rotatedVector = Quaternion.AngleAxis(-45, Vector2.up) * velocity;
+            Vector3 rotatedVector = new Vector3(-rb.velocity.x, rb.velocity.y);
             rb.velocity = rotatedVector;
-            Debug.Log(rotatedVector); // Output: Rotated vector
+            transform.position = new Vector2(maxX + WallOffset, transform.position.y);
+        }
+        else if (transform.position.x < minX - WallOffset)
+        {
+
+            Vector3 rotatedVector = new Vector3(-rb.velocity.x, rb.velocity.y);
+            rb.velocity = rotatedVector;
+            transform.position = new Vector2(minX - WallOffset, transform.position.y);
         }
     }
 }

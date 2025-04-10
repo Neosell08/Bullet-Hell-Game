@@ -31,6 +31,7 @@ public class LevelButtonScript : MonoBehaviour
             isLocked = true;
             GetComponent<Button>().interactable = false;
             Lock.SetActive(true);
+            Debug.Log(PlayerPrefs.GetFloat(RequiredTimeScene + "StarTime" + Convert.ToString(RequiredStars)));
         }
 
         float record;
@@ -50,7 +51,6 @@ public class LevelButtonScript : MonoBehaviour
         {
             float starTime = PlayerPrefs.GetFloat(Scene + "StarTime" + Convert.ToString(i));
 
-            Debug.Log(starTime);
             if (record <= starTime)
             {
                 Stars[i].GetComponent<Image>().sprite = FullStarTexture;

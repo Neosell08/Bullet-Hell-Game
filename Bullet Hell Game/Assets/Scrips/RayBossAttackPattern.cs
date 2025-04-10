@@ -37,7 +37,8 @@ public class RayBossAttackPattern : MonoBehaviour
     //the calculated delay of each ray
     private List<float> rayDelays = new List<float>();
 
-
+    List<GameObject> RayInstances = new List<GameObject>();
+    List<GameObject> WarningInstances = new List<GameObject>();
     
 
 
@@ -59,6 +60,16 @@ public class RayBossAttackPattern : MonoBehaviour
     public void StopAllRays()
     {
         StopAllCoroutines();
+        foreach(var ray in RayInstances)
+        {
+            Destroy(ray);
+        }
+        foreach (var warning in WarningInstances)
+        {
+            Destroy(warning);
+        }
+        WarningInstances.Clear();
+        RayInstances.Clear();
     }
     //set new ray schedule
     public void SetRays(List<RayInfo> rays)
@@ -165,7 +176,7 @@ public class RayBossAttackPattern : MonoBehaviour
         
         //spawn warning sign 
         GameObject warningSign = Instantiate(WarningSignPrefab, warningPos, Quaternion.identity);
-
+        WarningInstances.Add(warningSign);
         yield return new WaitForSeconds(warningDelay);
 
         //spawn ray
@@ -173,11 +184,13 @@ public class RayBossAttackPattern : MonoBehaviour
         Quaternion rotation = sideways ? Quaternion.Euler(0, 0, 90) : Quaternion.identity;
         Vector2 rayPos = sideways ? new Vector2(0, warningSign.transform.position.y) : new Vector2(warningSign.transform.position.x, 0);
         Destroy(warningSign);
+        WarningInstances.Remove(warningSign);
         GameObject ray = Instantiate(RayPrefab, rayPos, rotation);
-
+        RayInstances.Add(ray);
         yield return new WaitForSeconds(rayDuration);
 
         Destroy(ray);
+        RayInstances.Remove(ray);
 
     }
 

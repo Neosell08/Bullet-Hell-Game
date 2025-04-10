@@ -35,9 +35,9 @@ public class BounceBulletAttack : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, Globals.RotateVector(Vector2.right, leftRotRange.x));
-        Gizmos.DrawLine(transform.position, Globals.RotateVector(Vector2.right, leftRotRange.y));
-        Gizmos.DrawLine(transform.position, Globals.RotateVector(Vector2.right, rightRotRange.x));
-        Gizmos.DrawLine(transform.position, Globals.RotateVector(Vector2.right, rightRotRange.y));
+        Gizmos.DrawLine(transform.position, Globals.RotateVector(Vector2.right, leftRotRange.x) + (Vector2)transform.position);
+        Gizmos.DrawLine(transform.position, Globals.RotateVector(Vector2.right, leftRotRange.y) + (Vector2)transform.position);
+        Gizmos.DrawLine(transform.position, Globals.RotateVector(Vector2.right, rightRotRange.x) + (Vector2)transform.position);
+        Gizmos.DrawLine(transform.position, Globals.RotateVector(Vector2.right, rightRotRange.y) + (Vector2)transform.position);
     }
 }
