@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class ExtremelyHardBossScript : MonoBehaviour
 {
+    public RayInfo Ray;
+    public float outsideY;
+    public float Speed;
+
+
+
     int Phase;
     BossHealth health;
     RayBossAttackPattern RayAttack;
     BounceBulletAttack BounceAttack;
     SphereProjectileBossAttack SphereAttack;
-    public RayInfo Ray;
-
     float timer;
     Vector3 tempPos;
     // Start is called before the first frame update
@@ -29,34 +33,65 @@ public class ExtremelyHardBossScript : MonoBehaviour
         {
             if (health.hp < 20)
             {
-                FlyOutOfSceen();
-                Phase++;
+                StartCoroutine(FlyOutOfSceen());
+                ChangePhase();
             }
         }
         else if (Phase == 1)
         {
             timer += Time.deltaTime;
+            Debug.Log(timer);
             if (timer > 15)
             {
-                FlyInToScreen();
-                Phase++;
+                StartCoroutine(FlyInToScreen());
+                ChangePhase();
             }
         }
     }
-    public void FlyOutOfSceen()
+    public IEnumerator FlyOutOfSceen()
     {
         tempPos = transform.position;
-        transform.position = new Vector3(transform.position.x, 999999);
-        SphereAttack.enabled = false;
-        BounceAttack.enabled = false;
-        RayAttack.enabled = true;
+        while (transform.position.y < outsideY)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime * Speed);
+            yield return null;
+        }
     }
-    public void FlyInToScreen()
+    public IEnumerator FlyInToScreen()
     {
-        transform.position = tempPos;
-        SphereAttack.enabled = true;
-        BounceAttack.enabled = true;
-        RayAttack.SetRays(new List<RayInfo> { Ray });
-        
+        while (transform.position.y > tempPos.y)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y - Time.deltaTime * Speed);
+            yield return null;
+        }
+
+    }
+    public void ChangePhase(int p = -1)
+    {
+        if (p != -1)
+        {
+            Phase = p;
+        }
+        else
+        {
+            Phase++;
+        }
+        if (Phase == 1)
+        {
+
+            SphereAttack.enabled = false;
+            BounceAttack.enabled = false;
+            RayAttack.enabled = true;
+        }
+        else if (Phase == 2)
+        {
+            SphereAttack.enabled = true;
+            BounceAttack.enabled = true;
+            RayAttack.SetRays(new List<RayInfo> { Ray });
+        }
+        else if (Phase == 3)
+        {
+
+        }
     }
 }

@@ -1414,7 +1414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1747592680371874413, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1747592680371874413, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: BulletAmount
@@ -1782,7 +1782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8369896889011744356, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: MaxHP
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 8369896889011744356, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: WinUI
@@ -1823,6 +1823,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfca75d281b43184e8cdc8e4fd2c9096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ray:
+    MinMaxDelay: {x: 10, y: 10}
+    WarningDelay: 2
+    WarningCoord: -4
+    RayDuration: 2
+    PreDefinedCoord: 0
+    UsePreDefindedCoord: 0
+    ConnectedToPrevious: 0
+    Sideways: 0
+  outsideY: 6
+  Speed: 2
 --- !u!114 &6418870079084886280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1861,7 +1872,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6418870079084886277}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6418870079084886278}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe1e2f4c6f7d32948b5d808614888a2b, type: 3}
   m_Name: 
