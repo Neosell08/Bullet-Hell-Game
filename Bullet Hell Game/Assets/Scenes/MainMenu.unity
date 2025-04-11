@@ -3894,6 +3894,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 146243230493893446, guid: a5412211b1e9a1a4b945f3f92088eba1, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 537eb5535a97790458bda7063ab686e2, type: 2}
     - target: {fileID: 971746258472747270, guid: a5412211b1e9a1a4b945f3f92088eba1, type: 3}
       propertyPath: m_Name
       value: Menu Music
