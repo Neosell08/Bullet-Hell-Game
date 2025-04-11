@@ -21,6 +21,7 @@ public class BossHealth : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         DefaultMaterial = sr.material;
         hp = MaxHP;
+        WhiteTimer = float.PositiveInfinity;
     }
     private void Update()
     {
