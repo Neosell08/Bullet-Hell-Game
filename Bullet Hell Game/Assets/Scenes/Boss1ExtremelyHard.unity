@@ -1723,7 +1723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8369896889011744356, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: MaxHP
-      value: 35
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8369896889011744356, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: WinUI
