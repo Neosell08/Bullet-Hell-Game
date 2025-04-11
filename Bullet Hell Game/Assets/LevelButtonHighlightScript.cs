@@ -10,13 +10,11 @@ public class LevelButtonHighlightScript : MonoBehaviour, IPointerEnterHandler, I
     public float transitionSpeed;
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Hello3");
         StopAllCoroutines();
         StartCoroutine(ChangeLight(GetComponentInChildren<SpriteRenderer>(), true));
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Hello");
         StopAllCoroutines();
         StartCoroutine(ChangeLight(GetComponentInChildren<SpriteRenderer>(), false));
     }
@@ -25,7 +23,6 @@ public class LevelButtonHighlightScript : MonoBehaviour, IPointerEnterHandler, I
         Color target = lighten ? HighlightColor : NormalColor;
         while (sr.color != target)
         {
-            Debug.Log("Hello2");
             sr.color = Color.Lerp(sr.color, target, transitionSpeed);
             yield return null;
         }
