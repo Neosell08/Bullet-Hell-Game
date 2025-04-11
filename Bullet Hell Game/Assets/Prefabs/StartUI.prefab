@@ -418,8 +418,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Any Time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f4621db95f721a9448a97656e758b26a, type: 2}
+  m_sharedMaterial: {fileID: -810126639522602029, guid: f4621db95f721a9448a97656e758b26a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -443,8 +443,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 35.55
+  m_fontSizeBase: 35.55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -609,8 +609,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f4621db95f721a9448a97656e758b26a, type: 2}
+  m_sharedMaterial: {fileID: -810126639522602029, guid: f4621db95f721a9448a97656e758b26a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -634,8 +634,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 68.7
+  m_fontSizeBase: 68.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -889,8 +889,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Record: 00:00'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f4621db95f721a9448a97656e758b26a, type: 2}
+  m_sharedMaterial: {fileID: -810126639522602029, guid: f4621db95f721a9448a97656e758b26a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -914,8 +914,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 29.8
+  m_fontSizeBase: 29.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -978,7 +978,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1047335057405758817, guid: eebb3f752210f674fabbe78c723c52d6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 56.879986
+      value: 53.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047335057405758817, guid: eebb3f752210f674fabbe78c723c52d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -73
       objectReference: {fileID: 0}
     - target: {fileID: 2130429054012360666, guid: eebb3f752210f674fabbe78c723c52d6, type: 3}
       propertyPath: SetRecord
@@ -990,11 +994,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3552649495128851419, guid: eebb3f752210f674fabbe78c723c52d6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 54.579994
+      value: 53.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552649495128851419, guid: eebb3f752210f674fabbe78c723c52d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -73
       objectReference: {fileID: 0}
     - target: {fileID: 3769938591044929565, guid: eebb3f752210f674fabbe78c723c52d6, type: 3}
       propertyPath: m_Name
       value: Stars
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039856858626046024, guid: eebb3f752210f674fabbe78c723c52d6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 53.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039856858626046024, guid: eebb3f752210f674fabbe78c723c52d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -73
       objectReference: {fileID: 0}
     - target: {fileID: 4968206997430701141, guid: eebb3f752210f674fabbe78c723c52d6, type: 3}
       propertyPath: m_margin.z

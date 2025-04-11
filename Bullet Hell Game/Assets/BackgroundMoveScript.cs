@@ -6,14 +6,13 @@ public class BackgroundMoveScript : MonoBehaviour
 {
 
     public Vector2 Speed;
-    public float resetThreshold;
     public Vector2 Offset;
-    public float TopYoffset;
 
+    Vector2 tileSize;
     // Start is called before the first frame update
     void Start()
     {
-
+        tileSize = transform.GetComponentInChildren<SpriteRenderer>().size;
     }
 
     // Update is called once per frame
@@ -26,9 +25,16 @@ public class BackgroundMoveScript : MonoBehaviour
     {
         Transform[] children = new Transform[4] { transform.GetChild(0), transform.GetChild(1), transform.GetChild(2), transform.GetChild(3) };
 
-        children[0].position = new Vector2((transform.position.x % resetThreshold) - resetThreshold, (transform.position.y % resetThreshold) - resetThreshold);
-        children[1].position = new Vector2((transform.position.x % resetThreshold) - resetThreshold, transform.position.y % resetThreshold + TopYoffset);
-        children[2].position = new Vector2(transform.position.x%resetThreshold, (transform.position.y % resetThreshold) + resetThreshold + TopYoffset) + Offset;
-        children[3].position = new Vector2(transform.position.x%resetThreshold, transform.position.y%resetThreshold) + Offset;
+        children[0].position = CalculateTilePosition(transform.position, new Vector2(0, 0));
+        children[1].position = CalculateTilePosition(transform.position, new Vector2(1, 0));
+        children[2].position = CalculateTilePosition(transform.position, new Vector2(0, 1));
+        children[3].position = CalculateTilePosition(transform.position, new Vector2(1, 1));
+    }
+    private Vector2 CalculateTilePosition(Vector2 basePosition, Vector2 gridPosition)
+    {
+        return new Vector2(
+            basePosition.x % tileSize.x + (gridPosition.x - 1) * tileSize.x,
+            basePosition.y % tileSize.y + (gridPosition.y - 1) * tileSize.y
+        ) + Offset;
     }
 }
