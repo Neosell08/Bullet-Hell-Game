@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8369896889011744356}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   BulletPrefab: {fileID: 79209417545333571, guid: c220bbbc26cee5743a3c3537ff6ed4f8, type: 3}
   MinMaxDelay: {x: 0.8, y: 0.95}
   BulletAmount: 8
+  RandomRotation: 0
 --- !u!114 &4262387499894186291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,3 +226,4 @@ MonoBehaviour:
   WhiteMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   WhiteDuration: 0.2
   HitSFX: {fileID: 2394755481385814762, guid: 5833698cbe822b0429fe31b7d4655993, type: 3}
+  hp: 0
