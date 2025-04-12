@@ -151,6 +151,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 2808823334014377787, guid: 33219ea2cb3017541806d70c5e99f6e1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: debbafff0cce38f409e43e99036c38e2, type: 3}
     - target: {fileID: 3431912925873024339, guid: 33219ea2cb3017541806d70c5e99f6e1, type: 3}
       propertyPath: Speed.x
       value: -3
@@ -1723,7 +1727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8369896889011744356, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: MaxHP
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 8369896889011744356, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: WinUI

@@ -8,8 +8,15 @@ public class LevelButtonHighlightScript : MonoBehaviour, IPointerEnterHandler, I
     public Color HighlightColor;
     public Color NormalColor;
     public float transitionSpeed;
+
+    AudioSource audio;
+    private void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        audio.Play();
         StopAllCoroutines();
         StartCoroutine(ChangeLight(GetComponentInChildren<SpriteRenderer>(), true));
     }
@@ -26,6 +33,7 @@ public class LevelButtonHighlightScript : MonoBehaviour, IPointerEnterHandler, I
             sr.color = Color.Lerp(sr.color, target, transitionSpeed);
             yield return null;
         }
+
     }
     
 
