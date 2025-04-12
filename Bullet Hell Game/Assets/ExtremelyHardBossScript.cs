@@ -31,7 +31,7 @@ public class ExtremelyHardBossScript : MonoBehaviour
     {
         if (Phase == 0)
         {
-            if (health.hp < 20)
+            if (health.hp < 50)
             {
                 StartCoroutine(FlyOutOfSceen());
                 ChangePhase();
