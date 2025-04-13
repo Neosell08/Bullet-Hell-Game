@@ -8,6 +8,9 @@ public class ExtremelyHardBossScript : MonoBehaviour
     public float outsideY;
     public float Speed;
 
+    public float P3STDelay;
+    public float P3BounceDelay;
+
 
 
     int Phase;
@@ -15,6 +18,7 @@ public class ExtremelyHardBossScript : MonoBehaviour
     RayBossAttackPattern RayAttack;
     BounceBulletAttack BounceAttack;
     SphereProjectileBossAttack SphereAttack;
+    OneShotAttack ShootTowardsAttack;
     float timer;
     Vector3 tempPos;
     // Start is called before the first frame update
@@ -24,6 +28,7 @@ public class ExtremelyHardBossScript : MonoBehaviour
         RayAttack = GetComponent<RayBossAttackPattern>();
         BounceAttack = GetComponent<BounceBulletAttack>();
         SphereAttack = GetComponent<SphereProjectileBossAttack>();
+        ShootTowardsAttack = GetComponent<OneShotAttack>();
     }
 
     // Update is called once per frame
@@ -88,10 +93,12 @@ public class ExtremelyHardBossScript : MonoBehaviour
             SphereAttack.enabled = true;
             BounceAttack.enabled = true;
             RayAttack.SetRays(new List<RayInfo> { Ray });
+            ShootTowardsAttack.Delay = P3STDelay;
+            BounceAttack.Delay = P3STDelay;
         }
         else if (Phase == 3)
         {
-
+            
         }
     }
 }

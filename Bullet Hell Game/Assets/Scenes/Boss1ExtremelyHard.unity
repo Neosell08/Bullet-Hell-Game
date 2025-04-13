@@ -122,6 +122,34 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &178331680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1308814476173383114, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+  m_PrefabInstance: {fileID: 6418870079084886277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &178331682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178331680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!224 &286910244 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6309849745490440421, guid: 8a1e207c09c91524d8f8f915951647e4, type: 3}
@@ -1317,6 +1345,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e98a18b97e6e92447a87996bc94aa53c, type: 2}
+    - target: {fileID: 1308814476173383114, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1482049731751930662, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1377,6 +1409,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1805033797, guid: ff469ca2e40434b4e9385455c935d22d, type: 3}
+    - target: {fileID: 2294661272833922578, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 4262387499894186291, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: player
       value: 
@@ -1733,6 +1769,10 @@ PrefabInstance:
       propertyPath: WinUI
       value: 
       objectReference: {fileID: 1250377185}
+    - target: {fileID: 8505309525293350077, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8044610804608374023, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
     m_RemovedGameObjects: []
@@ -1750,6 +1790,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5374400151093632811, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6418870079084886295}
+    - targetCorrespondingSourceObject: {fileID: 1308814476173383114, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 178331682}
   m_SourcePrefab: {fileID: 100100000, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
 --- !u!1 &6418870079084886278 stripped
 GameObject:
@@ -1779,6 +1822,8 @@ MonoBehaviour:
     Sideways: 0
   outsideY: 6
   Speed: 2
+  P3STDelay: 2
+  P3BounceDelay: 1
 --- !u!114 &6418870079084886280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1792,7 +1837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enabled: 1
-  Delay: 2
+  Delay: 1.5
   BulletPrefab: {fileID: 5611167799788426117, guid: c7d0bddb5f1c70c489739ae948014017, type: 3}
 --- !u!114 &6418870079084886287
 MonoBehaviour:
@@ -1810,7 +1855,7 @@ MonoBehaviour:
   leftRotRange: {x: -45, y: -15}
   rightRotRange: {x: 195, y: 225}
   Enabled: 1
-  Delay: 1
+  Delay: 0.75
 --- !u!114 &6418870079084886289 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1747592680371874413, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
@@ -1836,7 +1881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack: {fileID: 6418870079084886289}
   BurstSpeed: 3
-  BurstDelay: 5
+  BurstDelay: 4
   BurstDuration: 3
 --- !u!1001 &7005141548116897940
 PrefabInstance:
