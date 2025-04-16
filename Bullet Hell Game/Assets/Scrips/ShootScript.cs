@@ -14,11 +14,16 @@ public class ShootScript : MonoBehaviour
 
     Vector2? start;
     bool HasShot = false;
+    PlayerScript move;
+    private void Start()
+    {
+        move = GetComponent<PlayerScript>();
+    }
     public void Update()
     {
         Vector2 mousePos = Input.mousePosition;
 
-        if (start != null && Vector2.Distance(mousePos, start.Value) >= ShootDistanceThreshold && Time.timeScale > 0 && Camera.main.ScreenToWorldPoint(Vector2.Lerp(mousePos, start.Value,0.5f)).y <= ShootSeperator.position.y && !HasShot)
+        if (!move.IsConnectedToMouse && start != null && Vector2.Distance(mousePos, start.Value) >= ShootDistanceThreshold && Time.timeScale > 0 && Camera.main.ScreenToWorldPoint(Vector2.Lerp(mousePos, start.Value,0.5f)).y <= ShootSeperator.position.y && !HasShot)
         {
             Vector2 ShootPos = Camera.main.ScreenToWorldPoint(Vector2.Lerp(mousePos, start.Value, 0.5f));
             Vector2 diff = mousePos - start.Value;
