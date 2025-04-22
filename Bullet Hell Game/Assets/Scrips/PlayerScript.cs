@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
     public float MoveDistanceThreshold;
     public float WASDSpeed;
 
-
+    Vector2 WASDMovement;
     private void Start()
     {
         Collider = GetComponent<Collider2D>();
@@ -41,6 +41,10 @@ public class PlayerScript : MonoBehaviour
 
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX, maxX), Mathf.Clamp(transform.position.y, minY, maxY), 0);
         }
+        else if (Time.timeScale > 0)
+        {
+            transform.position += (Vector3)WASDMovement * WASDSpeed * Time.deltaTime;
+        }
     }
     public void Move(InputAction.CallbackContext context)
     {
@@ -56,18 +60,19 @@ public class PlayerScript : MonoBehaviour
     }
     public void OnMoveWASD(InputAction.CallbackContext context)
     {
-        // 1. Read input as Vector2
+
         Vector2 input = context.ReadValue<Vector2>();
 
-        // 2. Convert to Vector3 (XZ plane)
-        Vector3 movement = new Vector3(input.x, 0, input.y);
 
-        // 3. Apply movement (frame-rate independent)
-        transform.position += movement * (WASDSpeed * Time.deltaTime);
+        WASDMovement = new Vector2(input.x, input.y);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Die();
+        if (GameObject.FindGameObjectWithTag("Boss").GetComponent<BossHealth>().isDead == false)
+        {
+            Die();
+        }
+        
     }
     public void Die()
     {

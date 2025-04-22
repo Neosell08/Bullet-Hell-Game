@@ -28,7 +28,7 @@ public class RayBossAttackPattern : MonoBehaviour
     public GameObject RayPrefab;
     public GameObject WarningSignPrefab;
     public float WarningCoord;
-    public GameObject player;
+   
 
     float timer;
     //all information about rays
@@ -39,7 +39,8 @@ public class RayBossAttackPattern : MonoBehaviour
 
     List<GameObject> RayInstances = new List<GameObject>();
     List<GameObject> WarningInstances = new List<GameObject>();
-    
+    GameObject player;
+
 
 
     // Start is called before the first frame update
@@ -47,6 +48,7 @@ public class RayBossAttackPattern : MonoBehaviour
     {
         GenerateNewDelays();
         GenerateNewCountDowns();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
     
 

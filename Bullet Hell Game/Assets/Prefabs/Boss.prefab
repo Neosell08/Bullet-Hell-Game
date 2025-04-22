@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5225794833406433304}
   - component: {fileID: 8505309525293350077}
+  - component: {fileID: 3513398915094400793}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -94,6 +95,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &3513398915094400793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308814476173383114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &5374400151093632811
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +326,6 @@ MonoBehaviour:
   RayPrefab: {fileID: 3951259684223421498, guid: 19247870d6933c84db21548cf9bb71eb, type: 3}
   WarningSignPrefab: {fileID: 2686041283449787337, guid: 928a1e4a7fb17b3478a9028124a8b78e, type: 3}
   WarningCoord: 0
-  player: {fileID: 0}
   Rays: []
 --- !u!114 &8369896889011744356
 MonoBehaviour:
@@ -322,3 +345,9 @@ MonoBehaviour:
   WhiteDuration: 0.2
   HitSFX: {fileID: 2394755481385814762, guid: 5833698cbe822b0429fe31b7d4655993, type: 3}
   hp: 0
+  ExplosionPrefab: {fileID: 8527643613147451971, guid: d961d62256918a6499cd93e66888a6f1, type: 3}
+  ExplosionDelayRange: {x: 2, y: 0.4}
+  DeadAnimationDuration: 5
+  DisableComponents: []
+  ExplosionSpawnSize: {x: 0.5, y: 0.5}
+  isDead: 0

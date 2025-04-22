@@ -250,6 +250,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b558a7ea997b26745870788d5fc018a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Scenes:
+  - Boss1
+  - Boss1Hard
+  - Boss1ExtremelyHard
 --- !u!114 &132286599
 MonoBehaviour:
   m_ObjectHideFlags: 0

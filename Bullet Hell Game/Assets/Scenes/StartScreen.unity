@@ -290,9 +290,9 @@ MonoBehaviour:
   SceneStarTimes:
   - scene: Boss1
     times:
-    - 35
-    - 50
-    - 80
+    - 45
+    - 70
+    - 120
   - scene: Boss1Hard
     times:
     - 1e+12

@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class ResetDataScript : MonoBehaviour
 {
+    public string[] Scenes;
     public void ResetData()
     {
-        PlayerPrefs.DeleteAll();
+        foreach (string scene in Scenes)
+        {
+            PlayerPrefs.DeleteKey(scene + "Record");
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

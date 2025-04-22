@@ -26,7 +26,6 @@ public class BossScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
         Vector2 targetDir = MovePoints[CurPointIndex] - (Vector2)transform.position;
 
