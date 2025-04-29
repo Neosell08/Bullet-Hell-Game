@@ -78,6 +78,10 @@ public class BossHealth : MonoBehaviour
                 explosionDelay = Random.Range(ExplosionDelayRange.x, ExplosionDelayRange.y);
                 foreach (Behaviour component in DisableComponents)
                 {
+                    if (component is RayBossAttackPattern rayAttack)
+                    {
+                        rayAttack.StopAllRays();
+                    }
                     component.enabled = false;
                 }
             }
