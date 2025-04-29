@@ -1869,7 +1869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enabled: 1
-  Delay: 1.5
+  Delay: 2.1
   BulletPrefab: {fileID: 5611167799788426117, guid: c7d0bddb5f1c70c489739ae948014017, type: 3}
 --- !u!114 &6418870079084886281 stripped
 MonoBehaviour:
@@ -1898,7 +1898,7 @@ MonoBehaviour:
   leftRotRange: {x: -45, y: -15}
   rightRotRange: {x: 195, y: 225}
   Enabled: 1
-  Delay: 0.75
+  Delay: 1.1
 --- !u!114 &6418870079084886289 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1747592680371874413, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
