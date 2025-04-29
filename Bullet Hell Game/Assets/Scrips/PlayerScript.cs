@@ -12,11 +12,17 @@ public class PlayerScript : MonoBehaviour
     public GameObject PlayerDeadSFX;
     public float MoveDistanceThreshold;
     public float WASDSpeed;
+    [Header("Line settings")]
+    public float LineDistanceCutoff;
+    public float LineMaxSize;
+    public float LineWidthDescent;
 
     Vector2 WASDMovement;
+    LineRenderer lr;
     private void Start()
     {
         Collider = GetComponent<Collider2D>();
+        lr = GetComponent<LineRenderer>();
     }
 
     void Update()
@@ -44,7 +50,24 @@ public class PlayerScript : MonoBehaviour
         else if (Time.timeScale > 0)
         {
             transform.position += (Vector3)WASDMovement * WASDSpeed * Time.deltaTime;
+            
         }
+        if (Time.timeScale > 0)
+        {
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            lr.SetPositions(new Vector3[2] { transform.position, mousePos });
+            float distance = Vector2.Distance(transform.position, mousePos);
+            float size = -LineWidthDescent * distance + LineMaxSize;
+            if (distance > LineDistanceCutoff) { size = 0; }
+            lr.endWidth = size;
+            lr.startWidth = size;
+
+        }
+        else
+        {
+            lr.SetPositions(new Vector3[2] { transform.position, transform.position });
+        }
+
     }
     public void Move(InputAction.CallbackContext context)
     {

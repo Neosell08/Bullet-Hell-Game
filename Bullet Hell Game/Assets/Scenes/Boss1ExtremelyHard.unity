@@ -2043,6 +2043,18 @@ PrefabInstance:
       propertyPath: m_ExcludeLayers.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 995793305295273960, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
+      propertyPath: m_Parameters.numCapVertices
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 995793305295273960, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 995793305295273960, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2671479830871320705, guid: 1947befb94b297a49a9fe5845806261d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6028347
