@@ -1769,6 +1769,38 @@ PrefabInstance:
       propertyPath: WinUI
       value: 
       objectReference: {fileID: 1250377185}
+    - target: {fileID: 8369896889011744356, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: DisableComponents.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8369896889011744356, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: DisableComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 402312953}
+    - target: {fileID: 8369896889011744356, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: DisableComponents.Array.data[1]
+      value: 
+      objectReference: {fileID: 6418870079084886287}
+    - target: {fileID: 8369896889011744356, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: DisableComponents.Array.data[2]
+      value: 
+      objectReference: {fileID: 6418870079084886280}
+    - target: {fileID: 8369896889011744356, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: DisableComponents.Array.data[3]
+      value: 
+      objectReference: {fileID: 6418870079084886279}
+    - target: {fileID: 8369896889011744356, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: DisableComponents.Array.data[4]
+      value: 
+      objectReference: {fileID: 6418870079084886295}
+    - target: {fileID: 8369896889011744356, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: DisableComponents.Array.data[5]
+      value: 
+      objectReference: {fileID: 6418870079084886289}
+    - target: {fileID: 8369896889011744356, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+      propertyPath: DisableComponents.Array.data[6]
+      value: 
+      objectReference: {fileID: 6418870079084886281}
     - target: {fileID: 8505309525293350077, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
       propertyPath: m_Shadows.m_Type
       value: 1
@@ -1839,6 +1871,17 @@ MonoBehaviour:
   Enabled: 1
   Delay: 1.5
   BulletPrefab: {fileID: 5611167799788426117, guid: c7d0bddb5f1c70c489739ae948014017, type: 3}
+--- !u!114 &6418870079084886281 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4262387499894186291, guid: 2adee4ec74efa954da24f6f38ad1ad2f, type: 3}
+  m_PrefabInstance: {fileID: 6418870079084886277}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6418870079084886278}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ee88c3e87c9a541a0ec7503b06f141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6418870079084886287
 MonoBehaviour:
   m_ObjectHideFlags: 0
