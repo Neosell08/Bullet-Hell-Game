@@ -18,6 +18,8 @@ public class BossHealth : MonoBehaviour
     public float DeadAnimationDuration;
     public Behaviour[] DisableComponents;
     public Vector2 ExplosionSpawnSize;
+    public RuntimeAnimatorController DeadAnimation;
+    
     
 
     float whiteTimer;
@@ -26,6 +28,7 @@ public class BossHealth : MonoBehaviour
     [HideInInspector] public bool isDead;
     float explosionDelay;
     SpriteRenderer sr;
+    Animator anim;
     Material DefaultMaterial;
     void Start()
     {
@@ -33,6 +36,8 @@ public class BossHealth : MonoBehaviour
         DefaultMaterial = sr.material;
         hp = MaxHP;
         whiteTimer = float.PositiveInfinity;
+        anim = GetComponent<Animator>();
+        
     }
     private void Update()
     {
@@ -76,6 +81,7 @@ public class BossHealth : MonoBehaviour
             {
                 isDead = true;
                 explosionDelay = Random.Range(ExplosionDelayRange.x, ExplosionDelayRange.y);
+                anim.runtimeAnimatorController = DeadAnimation;
                 foreach (Behaviour component in DisableComponents)
                 {
                     if (component is RayBossAttackPattern rayAttack)

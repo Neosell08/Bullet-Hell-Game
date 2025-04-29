@@ -350,4 +350,5 @@ MonoBehaviour:
   DeadAnimationDuration: 5
   DisableComponents: []
   ExplosionSpawnSize: {x: 0.5, y: 0.5}
+  DeadAnimation: {fileID: 9100000, guid: b1c5dd088d953a54c9b63281e3fd00fc, type: 2}
   isDead: 0
