@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UpdatingTimerScript : MonoBehaviour
@@ -15,4 +16,5 @@ public class UpdatingTimerScript : MonoBehaviour
     {
         text.text = Globals.TimeToString(Time.time - Camera.main.GetComponent<GameTimeScript>().StartTime);
     }
+    
 }

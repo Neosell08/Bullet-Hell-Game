@@ -380,11 +380,11 @@ PrefabInstance:
     - target: {fileID: 8637393903078936223, guid: e48eeb98dc4a147409a63f14289cc500, type: 3}
       propertyPath: Stars.Array.data[0]
       value: 
-      objectReference: {fileID: 701018809}
+      objectReference: {fileID: 0}
     - target: {fileID: 8637393903078936223, guid: e48eeb98dc4a147409a63f14289cc500, type: 3}
       propertyPath: Stars.Array.data[1]
       value: 
-      objectReference: {fileID: 701018810}
+      objectReference: {fileID: 0}
     - target: {fileID: 8637393903078936223, guid: e48eeb98dc4a147409a63f14289cc500, type: 3}
       propertyPath: StarTimes.Array.data[0]
       value: 35
@@ -410,16 +410,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32da002921a55274a89c17481f708c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &701018809 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3036805882165122540, guid: e48eeb98dc4a147409a63f14289cc500, type: 3}
-  m_PrefabInstance: {fileID: 701018806}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &701018810 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4433971002733105494, guid: e48eeb98dc4a147409a63f14289cc500, type: 3}
-  m_PrefabInstance: {fileID: 701018806}
-  m_PrefabAsset: {fileID: 0}
 --- !u!82 &860545836 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 2808823334014377787, guid: 33219ea2cb3017541806d70c5e99f6e1, type: 3}
@@ -963,9 +953,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 800, y: 800}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
