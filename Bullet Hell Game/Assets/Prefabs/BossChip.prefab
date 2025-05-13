@@ -81,7 +81,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -130,7 +130,7 @@ MonoBehaviour:
   DebrisAmount: 0
   DebrisPrefab: {fileID: 0}
   SpawnDebris: 0
-  Intertia: 1000
+  Inertia: 0
 --- !u!58 &-2371396217265438524
 CircleCollider2D:
   m_ObjectHideFlags: 0
