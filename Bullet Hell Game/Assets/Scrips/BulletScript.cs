@@ -11,7 +11,10 @@ public class BulletScript : MonoBehaviour
     public bool SpawnDebris;
     public float Inertia;
     Rigidbody2D rb;
+    public float DownAcceleration;
     // Start is called before the first frame update
+
+    float DownSpeed;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,10 +24,12 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DownSpeed += DownAcceleration * Time.deltaTime;
         transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + Inertia*Time.deltaTime);
-        
+        rb.velocity = (Vector2)transform.right * Speed + Vector2.down * DownSpeed;
         // Height in world units
         float height = 2f * Camera.main.orthographicSize;
+        
 
         // Width in world units
         float width = height * Camera.main.aspect;

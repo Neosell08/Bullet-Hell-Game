@@ -107,7 +107,7 @@ MonoBehaviour:
   DeathUI: {fileID: 0}
   PlayerDeadSFX: {fileID: 3609518139797297712, guid: 45693ba14acd47449bbc449a5102fd94, type: 3}
   MoveDistanceThreshold: 0.63
-  WASDSpeed: 3.5
+  WASDSpeed: 0
   LineDistanceCutoff: 0.63
   LineMaxSize: 0.4
   LineWidthDescent: 0.35

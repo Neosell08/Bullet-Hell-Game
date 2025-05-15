@@ -10,6 +10,8 @@ public class ExtremelyHardBossScript : MonoBehaviour
 
     public float P3STDelay;
     public float P3BounceDelay;
+    public float P2Health;
+    public float P2Time;
 
 
 
@@ -36,7 +38,7 @@ public class ExtremelyHardBossScript : MonoBehaviour
     {
         if (Phase == 0)
         {
-            if (health.hp < 50)
+            if (health.hp < P2Health)
             {
                 StartCoroutine(FlyOutOfSceen());
                 ChangePhase();
@@ -45,8 +47,7 @@ public class ExtremelyHardBossScript : MonoBehaviour
         else if (Phase == 1)
         {
             timer += Time.deltaTime;
-            Debug.Log(timer);
-            if (timer > 15)
+            if (timer > P2Time)
             {
                 StartCoroutine(FlyInToScreen());
                 ChangePhase();

@@ -20,6 +20,17 @@ public struct RayInfo
     public bool UsePreDefindedCoord;
     public bool ConnectedToPrevious;
     public bool Sideways;
+    public RayInfo(Vector2 minMaxDelay, float warningDelay, float warningCoord, float rayDuration, float preDefinedCoord, bool usePreDefindedCoord, bool connectedToPrevious, bool sideways)
+    {
+        MinMaxDelay = minMaxDelay;
+        WarningDelay = warningDelay;
+        WarningCoord = warningCoord;
+        RayDuration = rayDuration;
+        PreDefinedCoord = preDefinedCoord;
+        UsePreDefindedCoord = usePreDefindedCoord;
+        ConnectedToPrevious = connectedToPrevious;
+        Sideways = sideways;
+    }
 }
 
 
@@ -27,12 +38,11 @@ public class RayBossAttackPattern : MonoBehaviour
 {
     public GameObject RayPrefab;
     public GameObject WarningSignPrefab;
-    public float WarningCoord;
    
 
     float timer;
     //all information about rays
-    [SerializeField] List<RayInfo> Rays = new List<RayInfo>();
+    [SerializeField] public List<RayInfo> Rays = new List<RayInfo>();
 
     //the calculated delay of each ray
     private List<float> rayDelays = new List<float>();
@@ -46,8 +56,7 @@ public class RayBossAttackPattern : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GenerateNewDelays();
-        GenerateNewCountDowns();
+        RestartRays();
         player = GameObject.FindGameObjectWithTag("Player");
     }
     
@@ -105,6 +114,11 @@ public class RayBossAttackPattern : MonoBehaviour
             
         }
     }
+    public void RestartRays()
+    {
+        GenerateNewDelays();
+        GenerateNewCountDowns();
+    }
     
     public IEnumerator CountDownRay(float delay, RayInfo info)
     { 
@@ -121,7 +135,7 @@ public class RayBossAttackPattern : MonoBehaviour
 
         //make ray
         
-        StartCoroutine(MakeRay(info.Sideways, info.RayDuration, info.WarningDelay, info.UsePreDefindedCoord ? info.PreDefinedCoord : null));
+        StartCoroutine(MakeRay(info.Sideways, info.RayDuration, info.WarningDelay, info.WarningCoord, info.UsePreDefindedCoord ? info.PreDefinedCoord : null));
         
         if (info.ConnectedToPrevious)
         {
@@ -165,7 +179,7 @@ public class RayBossAttackPattern : MonoBehaviour
         
     }
 
-    public IEnumerator MakeRay(bool sideways, float rayDuration, float warningDelay, float? preDefinedcoord = null)
+    public IEnumerator MakeRay(bool sideways, float rayDuration, float warningDelay, float warningCoord, float? preDefinedcoord = null)
     {
         //prepare vars
       
@@ -174,10 +188,11 @@ public class RayBossAttackPattern : MonoBehaviour
 
         float temp = preDefinedcoord ?? playerCoord;
         
-        Vector2 warningPos = sideways ? new Vector2(WarningCoord, temp) : new Vector2(temp, WarningCoord);
+        Vector2 warningPos = sideways ? new Vector2(warningCoord, temp) : new Vector2(temp, warningCoord);
         
         //spawn warning sign 
         GameObject warningSign = Instantiate(WarningSignPrefab, warningPos, Quaternion.identity);
+        if (sideways) warningSign.transform.GetChild(0).Rotate(0, 0, 90);
         WarningInstances.Add(warningSign);
         yield return new WaitForSeconds(warningDelay);
 
@@ -217,11 +232,6 @@ public class RayBossAttackPattern : MonoBehaviour
         {
             return FindFirstInChain(rays, index - 1);
         }
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(new Vector2(WarningCoord, WarningCoord), 0.1f);
     }
     private void OnDestroy()
     {
