@@ -290,19 +290,19 @@ MonoBehaviour:
   SceneStarTimes:
   - scene: Boss1
     times:
-    - 45
-    - 70
     - 120
+    - 70
+    - 45
   - scene: Boss1Hard
     times:
-    - 70
-    - 120
     - 1e+12
+    - 120
+    - 70
   - scene: Boss1ExtremelyHard
     times:
-    - 55
-    - 110
     - 1e+12
+    - 110
+    - 55
 --- !u!1 &830370498
 GameObject:
   m_ObjectHideFlags: 0
