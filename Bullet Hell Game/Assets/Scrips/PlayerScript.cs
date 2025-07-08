@@ -17,15 +17,15 @@ public class PlayerScript : MonoBehaviour
     public float LineMaxSize;
     public float LineWidthDescent;
     public LineRenderer MoveLr;
-    
 
 
+    GameObject? ArcadeCursor;
     Vector2 WASDMovement;
     
     private void Start()
     {
         Collider = GetComponent<Collider2D>();
-
+        Cursors = 
     }
 
     void Update()
